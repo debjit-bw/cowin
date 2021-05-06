@@ -4,13 +4,13 @@ class parser:
 
     def __init__(self):
 
-        with open('./states_ii.json') as f:
+        with open('./data/states_ii.json') as f:
             self.s_ii = json.load(f)
 
-        with open('./districts_ii.json') as f:
+        with open('./data/districts_ii.json') as f:
             self.d_ii = json.load(f)
 
-        with open('./district_state.json') as f:
+        with open('./data/district_state.json') as f:
             self.d_s = json.load(f)
 
     def cook(self, URL):
@@ -55,7 +55,7 @@ class parser:
 
         (states, non) = self.ii_finder(phrase, self.s_ii)
         (districts, _) = self.ii_finder(phrase, self.d_ii)
-        
+
         if districts == None or states == None:
             return None
         elif len(districts) == 0:
